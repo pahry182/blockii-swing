@@ -9,9 +9,15 @@ public class GameManager : MonoBehaviour
     public float Score { get; set; }
     public new Audio audio = new Audio();
     public Setting setting = new Setting();
+    public GameObject[] placedPlatforms;
+    public Transform userPlacedTransformParent;
 
     public bool isUpdatingVolume;
     public bool isStarted, isLost;
+    public int maxPlatformPlaced = 1;
+    public float placedPlatformDuration = 0.7f;
+    public float placedPlatformCooldown = 1f;
+    [HideInInspector]public float placedPlatformCurrentCooldown = 0;
 
     private void Awake()
     {
@@ -21,7 +27,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SetupAudio();
-        PlayBgm("Main");
         Score = 0f;
     }
 
@@ -29,12 +34,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateVolume();
+        UpdateCooldown();
     }
 
-    public void ObtainScore()
+    public void UpdateCooldown()
     {
-        if (!isStarted) return;
-        Score += 1;
+        if (placedPlatformCurrentCooldown > 0)
+            placedPlatformCurrentCooldown -= Time.deltaTime;
     }
 
     public void PlaySfx(string name)

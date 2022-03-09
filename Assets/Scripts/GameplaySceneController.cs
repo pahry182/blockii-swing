@@ -18,6 +18,7 @@ public class GameplaySceneController : UIController
         {
             GameManager.Instance.isLost = false;
             GameManager.Instance.isStarted = true;
+            GameManager.Instance.PlayBgm("Main");
             StartCoroutine(SmoothFadeTransition(mainPanel, ingamePanel, 0.15f));
         }
 
@@ -30,7 +31,7 @@ public class GameplaySceneController : UIController
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            Restart(); 
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && GameManager.Instance.isLost)
