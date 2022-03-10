@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
 
-    public LayerMask platformLayerMask;
+    public LayerMask platformLayerMask, groundLayerMask;
     public Transform gapChecker;
 
     public bool isJumping, isJumpingOnce;
@@ -22,18 +22,19 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        AutoJump();
+        
     }
     private void FixedUpdate()
     {
         AutoMove();
+        AutoJump();
     }
 
     private void AutoMove()
     {
         if (!GameManager.Instance.isStarted) return;
 
-        float mv = 1 * moveSpeed * Time.deltaTime;
+        float mv = 1 * moveSpeed * Time.fixedDeltaTime;
         transform.Translate(mv, 0, 0);
     }
 
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private bool IsOnGround()
     {
-        return Physics2D.Raycast(transform.position, -Vector2.up, groundDetectionDistance, platformLayerMask);
+        return Physics2D.Raycast(transform.position, -Vector2.up, groundDetectionDistance, groundLayerMask);
     }
 
     private bool IsThereGap()

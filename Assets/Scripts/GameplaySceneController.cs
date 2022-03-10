@@ -11,17 +11,7 @@ public class GameplaySceneController : UIController
 
     private void Update()
     {
-        if (Input.anyKeyDown &&
-            !Input.GetKeyDown(KeyCode.Escape) &&
-            !GameManager.Instance.isStarted && 
-            !GameManager.Instance.isLost)
-        {
-            GameManager.Instance.isLost = false;
-            GameManager.Instance.isStarted = true;
-            GameManager.Instance.PlayBgm("Main");
-            StartCoroutine(SmoothFadeTransition(mainPanel, ingamePanel, 0.15f));
-        }
-
+        
         if (GameManager.Instance.isLost && GameManager.Instance.isStarted)
         {
             GameManager.Instance.isStarted = false;
@@ -31,20 +21,28 @@ public class GameplaySceneController : UIController
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Restart(); 
+            RestartGame(); 
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && GameManager.Instance.isLost)
         {
-            Restart();
+            RestartGame();
         }
 
         scoreText.text = "Score : " + ((int)GameManager.Instance.Score).ToString();
     }
 
-    public void Restart()
+    public void RestartGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void StartGame()
+    {
+        GameManager.Instance.isLost = false;
+        GameManager.Instance.isStarted = true;
+        GameManager.Instance.PlayBgm("Main");
+        StartCoroutine(SmoothFadeTransition(mainPanel, ingamePanel, 0.15f));
     }
 }

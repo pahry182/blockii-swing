@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Setting setting = new Setting();
     public GameObject[] placedPlatforms;
     public Transform userPlacedTransformParent;
+    public LayerMask platformLayer;
 
     public bool isUpdatingVolume;
     public bool isStarted, isLost;
@@ -72,6 +73,14 @@ public class GameManager : MonoBehaviour
         }
 
         bgm.audioSource.Play();
+    }
+
+    public void StopBgm()
+    {
+        for (int i = 0; i < audio.backgroundMusics.Length; i++)
+        {
+            audio.backgroundMusics[i].audioSource.Stop();
+        }
     }
 
     private void UpdateVolume()

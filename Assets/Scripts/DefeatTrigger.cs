@@ -11,6 +11,7 @@ public class DefeatTrigger : MonoBehaviour
             GameManager.Instance.PlaySfx("PlayerDie");
             Time.timeScale = 0f;
             GameManager.Instance.isLost = true;
+            GameManager.Instance.StopBgm();
         }
     }
 }
