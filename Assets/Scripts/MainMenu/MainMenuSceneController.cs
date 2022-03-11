@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuButtonManager : MonoBehaviour
+public class MainMenuSceneController : UIController
 {
     [SerializeField] private GameObject menuPanel, selectLevelPanel;
 
@@ -40,21 +40,6 @@ public class MenuButtonManager : MonoBehaviour
     }
 
     public void backSkinButton()
-    {
-
-    }
-
-    public void level1Button()
-    {
-
-    }
-
-    public void level2Button()
-    {
-
-    }
-
-    public void level3Button()
     {
 
     }

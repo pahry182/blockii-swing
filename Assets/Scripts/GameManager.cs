@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public new Audio audio = new Audio();
     public Setting setting = new Setting();
     public GameObject[] placedPlatforms;
-    public Transform userPlacedTransformParent;
     public LayerMask platformLayer;
 
     [HideInInspector] public float placedPlatformDuration = 0.7f;
@@ -20,7 +19,16 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     void Start()

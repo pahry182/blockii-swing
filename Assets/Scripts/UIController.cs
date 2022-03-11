@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -65,5 +66,10 @@ public class UIController : MonoBehaviour
         container.DOAnchorPosY(-200, duration).SetUpdate(true);
         yield return new WaitForSeconds(duration);
         container.gameObject.SetActive(false);
+    }
+
+    public void GoToScene(string sceneName)
+    {
+        SceneManager.LoadSceneAsync(sceneName);
     }
 }
