@@ -11,6 +11,7 @@ public class DoubleTapPlatform : MonoBehaviour
 
     private byte clicks = 0;
     private float elapsedTime = 0f;
+    private float currentCd;
 
     private void Awake()
     {
@@ -33,6 +34,8 @@ public class DoubleTapPlatform : MonoBehaviour
                 elapsedTime = 0f;
             }
         }
+        if (currentCd > 0)
+            currentCd -= Time.deltaTime;
     }
 
     private void OnMouseDown()
@@ -54,6 +57,8 @@ public class DoubleTapPlatform : MonoBehaviour
 
     private void CallPlatform()
     {
+        if (currentCd > 0) return;
+        currentCd = GameManager.Instance.placedPlatformDuration;
         GameObject[] platforms = GameManager.Instance.placedPlatforms;
         Vector3 worldPosition = transform.position;
         worldPosition.y = -1.2f;

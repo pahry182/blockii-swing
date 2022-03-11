@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefeatTrigger : MonoBehaviour
+public class WinTrigger : MonoBehaviour
 {
     private GameplaySceneController _gsc;
 
@@ -15,7 +15,7 @@ public class DefeatTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            _gsc.LoseGame();
+            _gsc.WinGame();
         }
     }
 }

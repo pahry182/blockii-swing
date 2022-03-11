@@ -13,12 +13,10 @@ public class GameManager : MonoBehaviour
     public Transform userPlacedTransformParent;
     public LayerMask platformLayer;
 
+    [HideInInspector] public float placedPlatformDuration = 0.7f;
+
     public bool isUpdatingVolume;
     public bool isStarted, isLost;
-    public int maxPlatformPlaced = 1;
-    public float placedPlatformDuration = 0.7f;
-    public float placedPlatformCooldown = 1f;
-    [HideInInspector]public float placedPlatformCurrentCooldown = 0;
 
     private void Awake()
     {
@@ -35,13 +33,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateVolume();
-        UpdateCooldown();
-    }
-
-    public void UpdateCooldown()
-    {
-        if (placedPlatformCurrentCooldown > 0)
-            placedPlatformCurrentCooldown -= Time.deltaTime;
+        
     }
 
     public void PlaySfx(string name)

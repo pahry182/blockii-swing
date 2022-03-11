@@ -6,16 +6,12 @@ using UnityEngine.EventSystems;
 public class SingleTapPlatform : MonoBehaviour
 {
     private Vector3 worldPosition;
-    private Vector3 upPos;
-
     private GameObject[] platforms;
 
-    private int maxCount;
     private float currentCd;
 
     private void Start()
     {
-        maxCount = GameManager.Instance.maxPlatformPlaced;
         platforms = GameManager.Instance.placedPlatforms;
     }
 
@@ -28,7 +24,7 @@ public class SingleTapPlatform : MonoBehaviour
     private void OnMouseDown()
     {
         if (currentCd > 0) return;
-        currentCd = GameManager.Instance.placedPlatformCooldown;
+        currentCd = GameManager.Instance.placedPlatformDuration;
         //Vector3 mousePos = Input.mousePosition;
         //mousePos.z = Camera.main.nearClipPlane;
         //worldPosition = Camera.main.ScreenToWorldPoint(mousePos);

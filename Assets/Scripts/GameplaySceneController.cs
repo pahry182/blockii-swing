@@ -1,35 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameplaySceneController : UIController
 {
-    public CanvasGroup mainPanel, ingamePanel, losePanel;
-    public TextMeshProUGUI scoreText, loseScoreText;
+    [SerializeField] private Slider progressBar;
+    private Transform playerPos;
+
+    public CanvasGroup mainPanel, ingamePanel, resultPanel;
+    public TextMeshProUGUI scoreText, loseScoreText, resultText;
+
+    public int stage;
+    public float levelPlatformDuration;
+    public float levelProgress;
+    public float currentLevelProgress;
+    public float highestLevelProgress;
+
+    private void Awake()
+    {
+        GameManager.Instance.placedPlatformDuration = levelPlatformDuration;
+        playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        progressBar.maxValue = GameObject.FindGameObjectWithTag("Finish").GetComponent<Transform>().position.x;
+        progressBar.minValue = playerPos.position.x;
+    }
 
     private void Update()
     {
-        
-        if (GameManager.Instance.isLost && GameManager.Instance.isStarted)
-        {
-            GameManager.Instance.isStarted = false;
-            StartCoroutine(SmoothFadeTransition(ingamePanel, losePanel, 0.15f));
-            loseScoreText.text = "Score : " + ((int)GameManager.Instance.Score).ToString();
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             RestartGame(); 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && GameManager.Instance.isLost)
+        if (GameManager.Instance.isStarted)
         {
-            RestartGame();
+            progressBar.value = playerPos.position.x;
         }
-
-        scoreText.text = "Score : " + ((int)GameManager.Instance.Score).ToString();
+        
     }
 
     public void RestartGame()
@@ -44,5 +53,26 @@ public class GameplaySceneController : UIController
         GameManager.Instance.isStarted = true;
         GameManager.Instance.PlayBgm("Main");
         StartCoroutine(SmoothFadeTransition(mainPanel, ingamePanel, 0.15f));
+    }
+
+    public void LoseGame()
+    {
+        Time.timeScale = 0f;
+        GameManager.Instance.PlaySfx("PlayerDie");
+        GameManager.Instance.StopBgm();
+        GameManager.Instance.isLost = true;
+        GameManager.Instance.isStarted = false;
+        resultText.text = (int)((progressBar.value / progressBar.maxValue)*100) + "%";
+        StartCoroutine(SmoothFadeTransition(ingamePanel, resultPanel, 0.15f));
+    }
+
+    public void WinGame()
+    {
+        Time.timeScale = 0f;
+        GameManager.Instance.PlaySfx("Win");
+        GameManager.Instance.isStarted = false;
+        GameManager.Instance.StopBgm();
+        resultText.text = "100%";
+        StartCoroutine(SmoothFadeTransition(ingamePanel, resultPanel, 0.15f));
     }
 }
