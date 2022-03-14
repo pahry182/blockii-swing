@@ -21,10 +21,14 @@ public class GameplaySceneController : UIController
 
     private void Awake()
     {
-        GameManager.Instance.placedPlatformDuration = levelPlatformDuration;
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         progressBar.maxValue = GameObject.FindGameObjectWithTag("Finish").GetComponent<Transform>().position.x;
         progressBar.minValue = playerPos.position.x;
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.placedPlatformDuration = levelPlatformDuration;
     }
 
     private void Update()
