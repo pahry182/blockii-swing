@@ -12,10 +12,11 @@ public class DoubleTapPlatform : MonoBehaviour
     private byte clicks = 0;
     private float elapsedTime = 0f;
     private float currentCd;
+    [SerializeField] private SpriteRenderer _sr;
 
     private void Awake()
     {
-
+        
     }
 
     private void Start()
@@ -32,6 +33,7 @@ public class DoubleTapPlatform : MonoBehaviour
             {
                 clicks = 0;
                 elapsedTime = 0f;
+                _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, 0.17f);
             }
         }
         if (currentCd > 0)
@@ -42,8 +44,12 @@ public class DoubleTapPlatform : MonoBehaviour
     {
         clicks++;
 
-        if (clicks == 1)
+        if (clicks == 1 && currentCd <= 0)
+        {
             elapsedTime = 0f;
+            _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, 0.27f);
+
+        }
         else if (clicks > 1)
         {
             if (elapsedTime <= doubleClickDuration)
@@ -58,6 +64,7 @@ public class DoubleTapPlatform : MonoBehaviour
     private void CallPlatform()
     {
         if (currentCd > 0) return;
+        _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, 0.27f);
         currentCd = GameManager.Instance.placedPlatformDuration;
         GameObject[] platforms = GameManager.Instance.placedPlatforms;
         Vector3 worldPosition = transform.position;
