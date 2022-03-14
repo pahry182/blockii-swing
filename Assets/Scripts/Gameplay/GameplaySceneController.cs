@@ -21,10 +21,14 @@ public class GameplaySceneController : UIController
 
     private void Awake()
     {
-        GameManager.Instance.placedPlatformDuration = levelPlatformDuration;
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         progressBar.maxValue = GameObject.FindGameObjectWithTag("Finish").GetComponent<Transform>().position.x;
         progressBar.minValue = playerPos.position.x;
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.placedPlatformDuration = levelPlatformDuration;
     }
 
     private void Update()
@@ -44,6 +48,9 @@ public class GameplaySceneController : UIController
     public void RestartGame()
     {
         Time.timeScale = 1f;
+        GameManager.Instance.isLost = false;
+        GameManager.Instance.isStarted = false;
+        GameManager.Instance.StopBgm();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -51,7 +58,7 @@ public class GameplaySceneController : UIController
     {
         GameManager.Instance.isLost = false;
         GameManager.Instance.isStarted = true;
-        GameManager.Instance.PlayBgm("Main");
+        GameManager.Instance.PlayBgm("Level" + stage);
         StartCoroutine(SmoothFadeTransition(mainPanel, ingamePanel, 0.15f));
     }
 
