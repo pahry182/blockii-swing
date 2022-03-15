@@ -94,6 +94,12 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       audioSource: {fileID: 0}
+    - name: MainMenu
+      clip: {fileID: 8300000, guid: 7665db8e3142b034d8a78cd5a233eb8b, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 1
+      audioSource: {fileID: 0}
     activeSfx: []
     activeBgm: []
   placedPlatforms:
@@ -102,6 +108,7 @@ MonoBehaviour:
   platformLayer:
     serializedVersion: 2
     m_Bits: 64
+  currentUsedSkin: {fileID: 7482667652216324306, guid: d56c73ceb02637a49841a9b6f9c96884, type: 3}
   placedPlatformDuration: 0.7
   isUpdatingVolume: 0
   isStarted: 0

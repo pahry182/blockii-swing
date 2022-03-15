@@ -4,62 +4,78 @@ using UnityEngine;
 
 public class MainMenuSceneController : UIController
 {
-    [SerializeField] private GameObject menuPanel, selectLevelPanel, settingPanel, creditsPanel, guidePanel;
+    [SerializeField] private CanvasGroup menuPanel, selectLevelPanel, settingPanel, creditsPanel, guidePanel, skinPanel;
+
+    private void Awake()
+    {
+        menuPanel.gameObject.SetActive(true);
+        selectLevelPanel.gameObject.SetActive(false);
+        settingPanel.gameObject.SetActive(false);
+        creditsPanel.gameObject.SetActive(false);
+        guidePanel.gameObject.SetActive(false);
+        skinPanel.gameObject.SetActive(false);
+    }
 
     private void Start()
     {
-        menuPanel.SetActive(true);
-        selectLevelPanel.SetActive(false);
-        settingPanel.SetActive(false);
-        creditsPanel.SetActive(false);
-        guidePanel.SetActive(false);
+        GameManager.Instance.PlayBgm("MainMenu");
     }
 
     public void buttonStart()
     {
-        menuPanel.SetActive(false);
-        selectLevelPanel.SetActive(true);
+        menuPanel.gameObject.SetActive(false);
+        selectLevelPanel.gameObject.SetActive(true);
     }
 
     public void buttonBack()
     {
-        menuPanel.SetActive(true);
-        selectLevelPanel.SetActive(false);
+        menuPanel.gameObject.SetActive(true);
+        selectLevelPanel.gameObject.SetActive(false);
     }
 
     public void settingButton()
     {
-        settingPanel.SetActive(true);
-        menuPanel.SetActive(false);
+        settingPanel.gameObject.SetActive(true);
+        menuPanel.gameObject.SetActive(false);
     }
 
     public void backSettingButton()
     {
-        settingPanel.SetActive(false);
-        menuPanel.SetActive(true);
+        settingPanel.gameObject.SetActive(false);
+        menuPanel.gameObject.SetActive(true);
     }
 
     public void creditsButton()
     {
-        creditsPanel.SetActive(true);
-        settingPanel.SetActive(false);
+        creditsPanel.gameObject.SetActive(true);
+        settingPanel.gameObject.SetActive(false);
     }
 
     public void backCreditsButton()
     {
-        creditsPanel.SetActive(false);
-        settingPanel.SetActive(true);
+        creditsPanel.gameObject.SetActive(false);
+        settingPanel.gameObject.SetActive(true);
     }
 
     public void guideButton()
     {
-        guidePanel.SetActive(true);
-        settingPanel.SetActive(false);
+        guidePanel.gameObject.SetActive(true);
+        settingPanel.gameObject.SetActive(false);
     }
 
     public void backGuideButton()
     {
-        guidePanel.SetActive(false);
-        settingPanel.SetActive(true);
+        guidePanel.gameObject.SetActive(false);
+        settingPanel.gameObject.SetActive(true);
+    }
+
+    public void SkinButton()
+    {
+        StartCoroutine(SmoothFadeTransition(menuPanel, skinPanel, 0.5f));
+    }
+
+    public void BackSkinButton()
+    {
+        StartCoroutine(SmoothFadeTransition(skinPanel, menuPanel, 0.5f));
     }
 }

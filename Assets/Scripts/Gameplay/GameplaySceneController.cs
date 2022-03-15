@@ -47,7 +47,6 @@ public class GameplaySceneController : UIController
 
     public void RestartGame()
     {
-        Time.timeScale = 1f;
         GameManager.Instance.isLost = false;
         GameManager.Instance.isStarted = false;
         GameManager.Instance.StopBgm();
@@ -56,6 +55,7 @@ public class GameplaySceneController : UIController
 
     public void StartGame()
     {
+        Time.timeScale = 1f;
         GameManager.Instance.isLost = false;
         GameManager.Instance.isStarted = true;
         GameManager.Instance.PlayBgm("Level" + stage);
