@@ -6,11 +6,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public float Score { get; set; }
+    public Data data = new Data();
     public new Audio audio = new Audio();
     public Setting setting = new Setting();
     public GameObject[] placedPlatforms;
     public LayerMask platformLayer;
+    public Sprite currentUsedSkin;
 
     [HideInInspector] public float placedPlatformDuration = 0.7f;
 
@@ -34,7 +35,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SetupAudio();
-        Score = 0f;
     }
 
     // Update is called once per frame
@@ -185,4 +185,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public class Data
+    {
+        public int GetStageProgress(int stage)
+        {
+            return PlayerPrefs.GetInt("Level_" + stage);
+        }
+
+        public void SetStageProgress(int stage, int progress)
+        {
+            PlayerPrefs.SetInt("Level_" + stage, progress);
+        }
+    }
 }

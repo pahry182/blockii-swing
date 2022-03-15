@@ -69,7 +69,9 @@ public class GameplaySceneController : UIController
         GameManager.Instance.StopBgm();
         GameManager.Instance.isLost = true;
         GameManager.Instance.isStarted = false;
-        resultText.text = (int)((progressBar.value / progressBar.maxValue)*100) + "%";
+        int result = (int)((progressBar.value / progressBar.maxValue) * 100);
+        resultText.text = result + "%";
+        GameManager.Instance.data.SetStageProgress(stage, result);
         StartCoroutine(SmoothFadeTransition(ingamePanel, resultPanel, 0.15f));
     }
 
@@ -80,6 +82,7 @@ public class GameplaySceneController : UIController
         GameManager.Instance.isStarted = false;
         GameManager.Instance.StopBgm();
         resultText.text = "100%";
+        GameManager.Instance.data.SetStageProgress(stage, 100);
         StartCoroutine(SmoothFadeTransition(ingamePanel, resultPanel, 0.15f));
     }
 }
