@@ -7,19 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public Data data = new Data();
-<<<<<<< Updated upstream
-    public new Audio audio = new Audio();
-    public Setting setting = new Setting();
-    public GameObject[] placedPlatforms;
-    public LayerMask platformLayer;
-    public Sprite currentUsedSkin;
-=======
     public Audio audio = new Audio();
     public Setting setting = new Setting();
     public GameObject[] placedPlatforms;
     public LayerMask platformLayer;
-    public Sprite currentUsedSkin; 
->>>>>>> Stashed changes
+    public Sprite currentUsedSkin;
 
     [HideInInspector] public float placedPlatformDuration = 0.7f;
 
@@ -200,11 +192,8 @@ public class GameManager : MonoBehaviour
 
         public void SetStageProgress(int stage, int progress)
         {
-<<<<<<< Updated upstream
-=======
             if (progress < GetStageProgress(stage)) return;
 
->>>>>>> Stashed changes
             PlayerPrefs.SetInt("Level_" + stage, progress);
         }
     }
