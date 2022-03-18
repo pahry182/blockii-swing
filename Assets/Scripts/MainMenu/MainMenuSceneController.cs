@@ -23,59 +23,51 @@ public class MainMenuSceneController : UIController
 
     public void buttonStart()
     {
-        menuPanel.gameObject.SetActive(false);
-        selectLevelPanel.gameObject.SetActive(true);
+        StartCoroutine(SmoothFadeTransition(menuPanel, selectLevelPanel, 0.2f));
     }
 
     public void buttonBack()
     {
-        menuPanel.gameObject.SetActive(true);
-        selectLevelPanel.gameObject.SetActive(false);
+        StartCoroutine(SmoothFadeTransition(selectLevelPanel, menuPanel, 0.2f));
     }
 
     public void settingButton()
     {
-        settingPanel.gameObject.SetActive(true);
-        menuPanel.gameObject.SetActive(false);
+        StartCoroutine(SmoothFadeTransition(menuPanel, settingPanel, 0.2f));
     }
 
     public void backSettingButton()
     {
-        settingPanel.gameObject.SetActive(false);
-        menuPanel.gameObject.SetActive(true);
+        StartCoroutine(SmoothFadeTransition(settingPanel, menuPanel, 0.2f));
     }
 
     public void creditsButton()
     {
-        creditsPanel.gameObject.SetActive(true);
-        settingPanel.gameObject.SetActive(false);
+        StartCoroutine(SmoothFadeTransition(settingPanel, creditsPanel, 0.2f));
     }
 
     public void backCreditsButton()
     {
-        creditsPanel.gameObject.SetActive(false);
-        settingPanel.gameObject.SetActive(true);
+        StartCoroutine(SmoothFadeTransition(creditsPanel, settingPanel, 0.2f));
     }
 
     public void guideButton()
     {
-        guidePanel.gameObject.SetActive(true);
-        settingPanel.gameObject.SetActive(false);
+        StartCoroutine(SmoothFadeTransition(settingPanel, guidePanel, 0.2f));
     }
 
     public void backGuideButton()
     {
-        guidePanel.gameObject.SetActive(false);
-        settingPanel.gameObject.SetActive(true);
+        StartCoroutine(SmoothFadeTransition(guidePanel, settingPanel, 0.2f));
     }
 
     public void SkinButton()
     {
-        StartCoroutine(SmoothFadeTransition(menuPanel, skinPanel, 0.5f));
+        StartCoroutine(SmoothFadeTransition(menuPanel, skinPanel, 0.2f));
     }
 
     public void BackSkinButton()
     {
-        StartCoroutine(SmoothFadeTransition(skinPanel, menuPanel, 0.5f));
+        StartCoroutine(SmoothFadeTransition(skinPanel, menuPanel, 0.2f));
     }
 }

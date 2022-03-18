@@ -9,6 +9,7 @@ public class SingleTapPlatform : MonoBehaviour
     private GameObject[] platforms;
 
     private float currentCd;
+    [SerializeField] private SpriteRenderer _sr;
 
     private void Start()
     {
@@ -31,5 +32,6 @@ public class SingleTapPlatform : MonoBehaviour
         worldPosition = transform.position;
         worldPosition.y = -1.2f;
         Instantiate(platforms[0], worldPosition, Quaternion.identity);
+        _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, 0.10f);
     }
 }

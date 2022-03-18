@@ -7,8 +7,10 @@ using TMPro;
 
 public class GameplaySceneController : UIController
 {
-    [SerializeField] private Slider progressBar;
+    [SerializeField] private Image progressBar;
     private Transform playerPos;
+
+    public GameObject[] textDisplayFX;
 
     public CanvasGroup mainPanel, ingamePanel, resultPanel;
     public TextMeshProUGUI scoreText, loseScoreText, resultText;
@@ -19,11 +21,13 @@ public class GameplaySceneController : UIController
     public float currentLevelProgress;
     public float highestLevelProgress;
 
+    private float maxFinishPosition;
+
     private void Awake()
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        progressBar.maxValue = GameObject.FindGameObjectWithTag("Finish").GetComponent<Transform>().position.x;
-        progressBar.minValue = playerPos.position.x;
+        maxFinishPosition = GameObject.FindGameObjectWithTag("Finish").GetComponent<Transform>().position.x;
+        //progressBar.minValue = playerPos.position.x;
     }
 
     private void Start()
@@ -40,7 +44,7 @@ public class GameplaySceneController : UIController
 
         if (GameManager.Instance.isStarted)
         {
-            progressBar.value = playerPos.position.x;
+            progressBar.fillAmount = playerPos.position.x / maxFinishPosition; 
         }
         
     }
@@ -69,7 +73,7 @@ public class GameplaySceneController : UIController
         GameManager.Instance.StopBgm();
         GameManager.Instance.isLost = true;
         GameManager.Instance.isStarted = false;
-        int result = (int)((progressBar.value / progressBar.maxValue) * 100);
+        int result = (int)((progressBar.fillAmount) * 100);
         resultText.text = result + "%";
         GameManager.Instance.data.SetStageProgress(stage, result);
         StartCoroutine(SmoothFadeTransition(ingamePanel, resultPanel, 0.15f));
@@ -84,5 +88,18 @@ public class GameplaySceneController : UIController
         resultText.text = "100%";
         GameManager.Instance.data.SetStageProgress(stage, 100);
         StartCoroutine(SmoothFadeTransition(ingamePanel, resultPanel, 0.15f));
+    }
+
+    public void SpawnTextDisplay()
+    {
+        StartCoroutine(SetTextDisplay());
+    }
+    private IEnumerator SetTextDisplay()
+    {
+        int random = Random.Range(0, textDisplayFX.Length);
+
+        textDisplayFX[random].SetActive(true);
+        yield return new WaitForSeconds(5f);
+        textDisplayFX[random].SetActive(false);
     }
 }

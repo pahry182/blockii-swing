@@ -108,7 +108,7 @@ MonoBehaviour:
   platformLayer:
     serializedVersion: 2
     m_Bits: 64
-  currentUsedSkin: {fileID: 7482667652216324306, guid: d56c73ceb02637a49841a9b6f9c96884, type: 3}
+  currentUsedSkin: {fileID: 21300000, guid: 5963d3bd05fc8274e9ba6e09e1915da1, type: 3}
   placedPlatformDuration: 0.7
   isUpdatingVolume: 0
   isStarted: 0
