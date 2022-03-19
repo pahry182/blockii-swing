@@ -70,6 +70,7 @@ public class UIController : MonoBehaviour
 
     public void GoToScene(string sceneName)
     {
+        //Time.timeScale = 1f;
         SceneManager.LoadSceneAsync(sceneName);
     }
 }

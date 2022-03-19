@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public bool isUpdatingVolume;
     public bool isStarted, isLost;
+    public float cameraOffset = 10;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        FirstInit();
 
     }
 
@@ -40,7 +42,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateVolume();
+        //UpdateVolume();
+    }
+
+    private void FirstInit()
+    {
+        if (PlayerPrefs.GetInt("Initialization") == 0)
+        {
+            PlayerPrefs.SetInt("Initialization", 1);
+            setting.BgmVolume = 1f;
+            setting.SfxVolume = 1f;
+        }
     }
 
     public void PlaySfx(string name)
@@ -81,18 +93,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void UpdateVolume()
+    public void UpdateVolume()
     {
-        if (!isUpdatingVolume) return;
 
         for (int i = 0; i < audio.activeSfx.Count; i++)
         {
-            audio.activeSfx[i].volume = setting.SfxVolume;
+            audio.activeSfx[i].volume = setting.BgmVolume;
         }
 
         for (int i = 0; i < audio.activeBgm.Count; i++)
         {
-            audio.activeBgm[i].volume = setting.BgmVolume;
+            audio.activeBgm[i].volume = setting.SfxVolume;
         }
     }
 

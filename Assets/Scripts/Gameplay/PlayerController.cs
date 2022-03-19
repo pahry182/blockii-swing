@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
+    private Animator _anim;
 
     public LayerMask platformLayerMask, groundLayerMask;
     public Transform gapChecker;
@@ -18,12 +19,20 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponentInChildren<Animator>();
+        _anim.SetBool(GameManager.Instance.currentUsedSkin.name, true);
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void Update()
     {
         
     }
+
     private void FixedUpdate()
     {
         AutoMove();
@@ -35,6 +44,8 @@ public class PlayerController : MonoBehaviour
         if (!GameManager.Instance.isStarted) return;
 
         float mv = 1 * moveSpeed * Time.fixedDeltaTime;
+        _anim.SetBool("isWalking", true);
+        CheckJumpAnim();
         transform.Translate(mv, 0, 0);
     }
 
@@ -43,6 +54,7 @@ public class PlayerController : MonoBehaviour
         if (IsOnGround() && IsThereGap())
         {
             GameManager.Instance.PlaySfx("Jump");
+            _anim.SetBool("isJumping", true);
             _rb.velocity = new Vector3(_rb.velocity.x, jumpForce);
         }
     }
@@ -50,6 +62,14 @@ public class PlayerController : MonoBehaviour
     private bool IsOnGround()
     {
         return Physics2D.Raycast(transform.position, -Vector2.up, groundDetectionDistance, groundLayerMask);
+    }
+
+    private void CheckJumpAnim()
+    {
+        if (IsOnGround())
+        {
+            _anim.SetBool("isJumping", false);
+        }
     }
 
     private bool IsThereGap()

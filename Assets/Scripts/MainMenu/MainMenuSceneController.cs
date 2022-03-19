@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuSceneController : UIController
 {
     [SerializeField] private CanvasGroup menuPanel, selectLevelPanel, settingPanel, creditsPanel, guidePanel, skinPanel;
+    [SerializeField] private Slider volumeSlider, cameraSlider;
 
     private void Awake()
     {
@@ -19,6 +21,9 @@ public class MainMenuSceneController : UIController
     private void Start()
     {
         GameManager.Instance.PlayBgm("MainMenu");
+        volumeSlider.value = GameManager.Instance.setting.BgmVolume;
+        cameraSlider.value = GameManager.Instance.cameraOffset;
+        Time.timeScale = 1f;
     }
 
     public void buttonStart()
@@ -69,5 +74,17 @@ public class MainMenuSceneController : UIController
     public void BackSkinButton()
     {
         StartCoroutine(SmoothFadeTransition(skinPanel, menuPanel, 0.2f));
+    }
+
+    public void OnChangeVolume()
+    {
+        GameManager.Instance.setting.BgmVolume = volumeSlider.value;
+        GameManager.Instance.setting.SfxVolume = volumeSlider.value;
+        GameManager.Instance.UpdateVolume();
+    }
+
+    public void OnChangeCamera()
+    {
+        GameManager.Instance.cameraOffset = cameraSlider.value;
     }
 }

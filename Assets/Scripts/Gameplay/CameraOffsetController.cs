@@ -14,16 +14,13 @@ public class CameraOffsetController : MonoBehaviour
         _cam = GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTransposer>();
     }
 
-    private void Update()
+    private void Start()
     {
-        if (isChanging)
-        {
-            
-        }
+        ChangeCamera();
     }
 
     public void ChangeCamera()
     {
-        _cam.m_FollowOffset = new Vector3(_slider.value, _cam.m_FollowOffset.y, _cam.m_FollowOffset.z);
+        _cam.m_FollowOffset = new Vector3(GameManager.Instance.cameraOffset, _cam.m_FollowOffset.y, _cam.m_FollowOffset.z);
     }
 }

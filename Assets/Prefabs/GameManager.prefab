@@ -95,7 +95,7 @@ MonoBehaviour:
       loop: 0
       audioSource: {fileID: 0}
     - name: MainMenu
-      clip: {fileID: 8300000, guid: 7665db8e3142b034d8a78cd5a233eb8b, type: 3}
+      clip: {fileID: 8300000, guid: f5dad5325763e604196d877f268f4d98, type: 3}
       volume: 1
       pitch: 1
       loop: 1
@@ -113,3 +113,4 @@ MonoBehaviour:
   isUpdatingVolume: 0
   isStarted: 0
   isLost: 0
+  cameraOffset: 10
