@@ -28,51 +28,61 @@ public class MainMenuSceneController : UIController
 
     public void buttonStart()
     {
+        GameManager.Instance.PlaySfx("Button");
         StartCoroutine(SmoothFadeTransition(menuPanel, selectLevelPanel, 0.2f));
     }
 
     public void buttonBack()
     {
+        GameManager.Instance.PlaySfx("Button");
         StartCoroutine(SmoothFadeTransition(selectLevelPanel, menuPanel, 0.2f));
     }
 
     public void settingButton()
     {
+        GameManager.Instance.PlaySfx("Button");
         StartCoroutine(SmoothFadeTransition(menuPanel, settingPanel, 0.2f));
     }
 
     public void backSettingButton()
     {
+        GameManager.Instance.PlaySfx("Button");
         StartCoroutine(SmoothFadeTransition(settingPanel, menuPanel, 0.2f));
     }
 
     public void creditsButton()
     {
+        GameManager.Instance.PlaySfx("Button");
         StartCoroutine(SmoothFadeTransition(settingPanel, creditsPanel, 0.2f));
     }
 
     public void backCreditsButton()
     {
+        GameManager.Instance.PlaySfx("Button");
         StartCoroutine(SmoothFadeTransition(creditsPanel, settingPanel, 0.2f));
     }
 
     public void guideButton()
     {
+        GameManager.Instance.PlaySfx("Button");
         StartCoroutine(SmoothFadeTransition(settingPanel, guidePanel, 0.2f));
     }
 
     public void backGuideButton()
     {
+        GameManager.Instance.PlaySfx("Button");
         StartCoroutine(SmoothFadeTransition(guidePanel, settingPanel, 0.2f));
     }
 
     public void SkinButton()
     {
+        GameManager.Instance.PlaySfx("Button");
         StartCoroutine(SmoothFadeTransition(menuPanel, skinPanel, 0.2f));
     }
 
     public void BackSkinButton()
     {
+        GameManager.Instance.PlaySfx("Button");
         StartCoroutine(SmoothFadeTransition(skinPanel, menuPanel, 0.2f));
     }
 

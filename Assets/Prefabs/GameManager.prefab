@@ -51,7 +51,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       audioSource: {fileID: 0}
-    - name: Charge
+    - name: Button
       clip: {fileID: 8300000, guid: 84b82535ec169b1449b354ded6faf6e6, type: 3}
       volume: 0.7
       pitch: 1

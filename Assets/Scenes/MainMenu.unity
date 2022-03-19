@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -131.42, y: -95.76}
+  m_AnchoredPosition: {x: -131.42, y: -207}
   m_SizeDelta: {x: 262.85, y: 87.0052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7818545
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6090688417790108325, guid: f48f33b6b1ff1a6489704ccc424dd9e7, type: 3}
+  m_Sprite: {fileID: 4084729604545529335, guid: 6e8caaf1e832dff4980c479167cfca9b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1114,7 +1114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 153.31226, y: -95.76}
+  m_AnchoredPosition: {x: 153.31226, y: -207}
   m_SizeDelta: {x: 256.5471, y: 87.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356113596
@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8166758193110557402, guid: f48f33b6b1ff1a6489704ccc424dd9e7, type: 3}
+  m_Sprite: {fileID: 2992851932395327412, guid: 6e8caaf1e832dff4980c479167cfca9b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3520,7 +3520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 181.8561, y: -31.000015}
+  m_AnchoredPosition: {x: 181.8561, y: 0.000008106232}
   m_SizeDelta: {x: 312.695, y: 334.793}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1058173328
@@ -3545,21 +3545,25 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Programmer
 
+    MUSIC COMPOSER
+
+
     Technical Artist
 
     2D Artist
 
 
-    2D Artist
-
     2D
     Artist
+
+
+    2D Artist
 
 
     Animator
 
 
-    Music Composer'
+    BeaT MAKER'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 714976a8dfeaec84bbb3867374bb43ff, type: 2}
   m_sharedMaterial: {fileID: 4252166133067325117, guid: 714976a8dfeaec84bbb3867374bb43ff, type: 2}
@@ -3574,8 +3578,8 @@ MonoBehaviour:
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 0.8156863, g: 0.46666667, b: 0.6745098, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 0, b: 0.5955057, a: 1}
+    bottomLeft: {r: 1, g: 0, b: 0.78772974, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
@@ -3746,7 +3750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -131.42, y: -192.5026}
+  m_AnchoredPosition: {x: -131.42, y: -100.50259}
   m_SizeDelta: {x: 262.85, y: 87.0052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084448453
@@ -5561,8 +5565,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 5.2846}
+  m_SizeDelta: {x: 199.6187, y: 199.6187}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1602871323
 GameObject:
@@ -5895,7 +5899,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -180, y: -31}
+  m_AnchoredPosition: {x: -180, y: -0}
   m_SizeDelta: {x: 312.695, y: 334.793}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697102563
@@ -5920,11 +5924,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Muhammad Rauf
 
+
+
     Dany Zaky
 
 
 
     Ambrosius Farrel
+
 
     Wahyu Khoirul
 
@@ -5948,8 +5955,8 @@ MonoBehaviour:
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 0.8156863, g: 0.46666667, b: 0.6745098, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 0, b: 0.5955057, a: 1}
+    bottomLeft: {r: 1, g: 0, b: 0.78772974, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
@@ -6572,7 +6579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 153.31226, y: -192.50009}
+  m_AnchoredPosition: {x: 153.31226, y: -100.500084}
   m_SizeDelta: {x: 256.5471, y: 87.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1817044184

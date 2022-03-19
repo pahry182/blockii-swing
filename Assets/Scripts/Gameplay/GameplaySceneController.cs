@@ -51,6 +51,7 @@ public class GameplaySceneController : UIController
 
     public void RestartGame()
     {
+        GameManager.Instance.PlaySfx("Button");
         GameManager.Instance.isLost = false;
         GameManager.Instance.isStarted = false;
         GameManager.Instance.StopBgm();
@@ -59,6 +60,7 @@ public class GameplaySceneController : UIController
 
     public void StartGame()
     {
+        GameManager.Instance.PlaySfx("Button");
         Time.timeScale = 1f;
         GameManager.Instance.isLost = false;
         GameManager.Instance.isStarted = true;
@@ -88,6 +90,11 @@ public class GameplaySceneController : UIController
         resultText.text = "100%";
         GameManager.Instance.data.SetStageProgress(stage, 100);
         StartCoroutine(SmoothFadeTransition(ingamePanel, resultPanel, 0.15f));
+    }
+
+    public void MenuButtonSFX()
+    {
+        GameManager.Instance.PlaySfx("Button");
     }
 
     public void SpawnTextDisplay()

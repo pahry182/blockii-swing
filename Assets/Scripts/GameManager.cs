@@ -30,13 +30,15 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        FirstInit();
+        
 
     }
 
     void Start()
     {
+        FirstInit();
         SetupAudio();
+        
     }
 
     // Update is called once per frame
