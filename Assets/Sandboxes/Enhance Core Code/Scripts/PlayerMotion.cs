@@ -6,8 +6,6 @@ public class PlayerMotion : MonoBehaviour
 {
     private Transform _tf;
 
-    public float movementSpeed;
-
     private void Awake()
     {
         _tf = GetComponent<Transform>();
@@ -18,8 +16,8 @@ public class PlayerMotion : MonoBehaviour
         
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        _tf.position = new Vector2(MusicConductor.Instance.songPosition, _tf.position.y);
+        _tf.position = new Vector2((MusicConductor.Instance.songPosition * MusicConductor.Instance.speedRatio) - MusicConductor.Instance.offsetPos, _tf.position.y);
     }
 }

@@ -13,6 +13,8 @@ public class MusicConductor : MonoBehaviour
     public float songPosition;                                      //Current song position, in seconds
     public float songPositionInBeats;                               //Current song position, in beats
     public float dspSongTime;                                       //How many seconds have passed since the song started
+    public float speedRatio;
+    public float offsetPos;
     
     private void Awake()
     {
